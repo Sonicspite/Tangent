@@ -15,8 +15,21 @@ int main(int argc, char *argv[])
         // Checks for arguments
     if (argc > 1) {
         if (strcmp(argv[1], "help") == 0) {
-            printf("Tutorial: For basic arithmatic, just simply type the equation. Spaces in between numbers are allowed. Example: 1+1 or 1+2+3. \n");
-            printf("Basic operators: \n Addition: + \n Subtraction: - \n Multiplication: * \n Division: / \n");
+            printf("\nTutorial: For basic arithmatic, just simply type the equation. Spaces between numbers are allowed. Example: 1+1 or 1 + 1. When using functions with multiple inputs, spaces or commas are allowed. \n");
+            
+            printf("Basic operations: \n Addition: + \n Subtraction: - \n Multiplication: * \n Division: / \n");
+            
+            printf("Advanced functions: \n Exponentiation: ^ \n Sqaure Root: sqrt() \n Nth Root: root(n)() \n Logarithm: log() \n");     
+            printf(" Natural Log: ln() \n Absolute Value: abs() \n Ceiling: ceil() \n Floor: floor() \n");
+            printf(" Least Common Multiple: lcm() \n Greatest Common Factor: gcf() \n Round to Nearest Whole Number: roundw() \n Factiorial: !() \n");
+            
+            printf("Trigonometry: \n Sine: sin() \n Cosine: cos() \n Tangent: tan() \n Cosectant: csc() \n Sectangent: sec() \n Cotangent: cot() \n");
+
+            printf("Statistics: \n Mean: mean() \n Median: median() \n Mode: mode() \n Minimum: min() \n Maximum: max() \n");
+
+            printf("Constants: \n 𝑒: e \n π: pi \n 𝑖: i \n");
+            
+            printf("\n Type \"tngnt menu\" to go to the main menu. \n ");
             return 0;
         } 
         else if (strcmp(argv[1], "version") == 0) {
@@ -42,7 +55,12 @@ int main(int argc, char *argv[])
         } 
         else if (strcmp(argv[1], "exit") == 0) {
             return 0;
-        } 
+        }
+        else if (strcmp(argv[1], "menu") == 0) {
+        //Placeholder so it defaults to the full program    
+        }
+        
+        
         else {
             // This runs if they typed an argument, but it wasn't one of the ones above
             printf("Not a valid operator or command, use \"help\" for a brief tutorial, or use \"commands\" for a list of commands.\n");
@@ -70,9 +88,21 @@ int main(int argc, char *argv[])
 
         if (strcmp(input, "help") == 0)
         {
-            printf("\nTutorial: For basic arithmatic, just simply type the equation. Spaces in between numbers are allowed. Example: 1+1 or 1+2+3. \n");
-            printf("Basic operators: \n Addition: + \n Subtraction: - \n Multiplication: * \n Division: / \n");
-            printf("\n Type \"menu\" to return to main menu, or just type an equation. \n ");
+            printf("\nTutorial: For basic arithmatic, just simply type the equation. Spaces between numbers are allowed. Example: 1+1 or 1 + 1. When using functions with multiple inputs, spaces or commas are allowed. \n");
+            
+            printf("Basic operations: \n Addition: + \n Subtraction: - \n Multiplication: * \n Division: / \n");
+            
+            printf("Advanced functions: \n Exponentiation: ^ \n Sqaure Root: sqrt() \n Nth Root: root(n)() \n Logarithm: log() \n");     
+            printf(" Natural Log: ln() \n Absolute Value: abs() \n Ceiling: ceil() \n Floor: floor() \n");
+            printf(" Least Common Multiple: lcm() \n Greatest Common Factor: gcf() \n Round to Nearest Whole Number: roundw() \n Factiorial: !() \n");
+            
+            printf("Trigonometry: \n Sine: sin() \n Cosine: cos() \n Tangent: tan() \n Cosectant: csc() \n Sectangent: sec() \n Cotangent: cot() \n");
+
+            printf("Statistics: \n Mean: mean() \n Median: median() \n Mode: mode() \n Minimum: min() \n Maximum: max() \n");
+
+            printf("Constants: \n 𝑒: e \n π: pi \n 𝑖: i \n");
+            
+            printf("\n Type \"tngnt\" to go to the main menu, or just type an equation. \n ");
         }
         else if (strcmp(input, "exit") == 0)
         {
@@ -101,7 +131,7 @@ int main(int argc, char *argv[])
         }
         else if (strcmp(input, "version") == 0)
         {
-            printf("\nCurrent version installed::\n");
+            printf("\nCurrent version installed:\n");
             printf("Tangent v%s\n", CURRENT_VERSION);
         }
         else if (strcmp(input, "clear") == 0)
