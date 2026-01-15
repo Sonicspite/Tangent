@@ -8,7 +8,7 @@ the math is done in tangent_engine.h */
 
 int main(int argc, char *argv[])
 {
-    const char *CURRENT_VERSION = "0.0.2";
+    const char *CURRENT_VERSION = "0.0.3 (test)";
 
     // Checks for arguments
     if (argc > 1) {
@@ -27,22 +27,31 @@ int main(int argc, char *argv[])
 
             printf("Statistics: \n Mean: mean() \n Median: median() \n Mode: mode() \n Minimum: min() \n Maximum: max() \n");
 
-            printf("Constants: \n 𝑒: e \n π: pi \n 𝑖: i \n");
+            printf("Constants: \n e: e \n π: pi \n i: i \n");
             
-            printf("\n Type \"tngnt menu\" to go to the main menu. \n ");
+            printf("\n Type \"tgnt menu\" to go to the main menu. \n ");
             return 0;
         } 
         else if (strcmp(argv[1], "version") == 0) {
             printf("Current version installed:\nTangent v%s\n", CURRENT_VERSION);
-            return 0; // Added return so it doesn't move to the menu
+            return 0;
         } 
         else if (strcmp(argv[1], "commands") == 0) {
+            printf("-----------------------------------\n");
             printf("List of commands:\n");
-            printf("\"help\", \"commands\", \"menu\", \"exit\", \"clear\", \"preferences\", \"update\", \"version\"\n");
+            printf("\n\"help\": Gives a brief tutorial on how to use Tangent. \n");
+            printf("\"commands\": Gives a full list of commands.\n");
+            printf("\"menu\": Takes you back to the main menu.\n");
+            printf("\"exit\": Exits Tangent.\n");
+            printf("\"clear\": Clears the terminal and the calculatror memory.\n");
+            printf("\"preferences\": Allows you to change various settings for Tangent.\n");
+            printf("\"update\": Checks for new versions of Tangent.\n");
+            printf("\"version\": Says what version of Tangent is installed.\n");
+            printf("\"uninstall\": Uninstalls Tangent.\n");
             return 0;
         } 
         else if (strcmp(argv[1], "update") == 0) {
-            // Your update logic calling the .sh script goes here
+            system("sh /usr/local/bin/tgnt_update.sh");
             return 0;
         } 
         else if (strcmp(argv[1], "preferences") == 0) {
@@ -59,6 +68,10 @@ int main(int argc, char *argv[])
         else if (strcmp(argv[1], "menu") == 0) {
         //Placeholder so it defaults to the full program    
         }
+        else if (strcmp(argv[1], "uninstall") == 0) {
+            system("sh /usr/local/bin/tgnt_uninstall.sh");
+            return 0;
+        }
         
         
         else {
@@ -72,7 +85,7 @@ int main(int argc, char *argv[])
     }
     
         
-
+    printf("-----------------------------------\n");
     printf("Welcome to Tangent — The powerful, easy to use calculator engine.\n");
     printf("Type \"help\" for a brief tutorial.\n");
     printf("Type \"clear\" to clear the terminal and calculator memory. \n");
@@ -88,7 +101,8 @@ int main(int argc, char *argv[])
 
         if (strcmp(input, "help") == 0)
         {
-            printf("\nTutorial: For basic arithmatic, just simply type the equation. Spaces between numbers are allowed. Example: 1+1 or 1 + 1. When using functions with multiple inputs, spaces or commas are allowed. \n");
+            printf("-----------------------------------\n");
+            printf("Tutorial: For basic arithmatic, just simply type the equation. Spaces between numbers are allowed. Example: 1+1 or 1 + 1. When using functions with multiple inputs, spaces or commas are allowed. \n");
             
             printf("Basic operations: \n Addition: + \n Subtraction: - \n Multiplication: * \n Division: / \n");
             
@@ -100,9 +114,9 @@ int main(int argc, char *argv[])
 
             printf("Statistics: \n Mean: mean() \n Median: median() \n Mode: mode() \n Minimum: min() \n Maximum: max() \n");
 
-            printf("Constants: \n 𝑒: e \n π: pi \n 𝑖: i \n");
+            printf("Constants: \n e: e \n π: pi \n i: i \n");
             
-            printf("\n Type \"tngnt\" to go to the main menu, or just type an equation. \n ");
+            printf("\n Type \"menu\" to go to the main menu, or just type an equation. \n ");
         }
         else if (strcmp(input, "exit") == 0)
         {
@@ -110,8 +124,8 @@ int main(int argc, char *argv[])
         }
         else if (strcmp(input, "menu") == 0)
         {
-            printf("\n-----------------------------------\n");
-            printf("\nWelcome to Tangent — The powerful, easy to use calculator engine.\n");
+            printf("-----------------------------------\n");
+            printf("Welcome to Tangent — The powerful, easy to use calculator engine.\n");
             printf("Type \"help\" for a brief tutorial.\n");
             printf("Type \"clear\" to clear the terminal and calculator memory. \n");
             printf("Type \"commands\" for a full list of commands.\n");
@@ -119,7 +133,8 @@ int main(int argc, char *argv[])
         }
         else if (strcmp(input, "commands") == 0)
         {
-            printf("\nList of commands:\n");
+            printf("-----------------------------------\n");
+            printf("List of commands:\n");
             printf("\n\"help\": Gives a brief tutorial on how to use Tangent. \n");
             printf("\"commands\": Gives a full list of commands.\n");
             printf("\"menu\": Takes you back to the main menu.\n");
@@ -128,10 +143,12 @@ int main(int argc, char *argv[])
             printf("\"preferences\": Allows you to change various settings for Tangent.\n");
             printf("\"update\": Checks for new versions of Tangent.\n");
             printf("\"version\": Says what version of Tangent is installed.\n");
+            printf("\"uninstall\": Uninstalls Tangent.\n");
         }
         else if (strcmp(input, "version") == 0)
         {
-            printf("\nCurrent version installed:\n");
+            printf("-----------------------------------\n");
+            printf("Current version installed:\n");
             printf("Tangent v%s\n", CURRENT_VERSION);
         }
         else if (strcmp(input, "clear") == 0)
@@ -141,11 +158,11 @@ int main(int argc, char *argv[])
         }
         else if (strcmp(input, "preferences") == 0)
         {
-            // TODO: Make these work
+            printf("Preferences command coming soon.\n");
         }
         else if (strcmp(input, "update") == 0)
         {
-            // TODO: Make these work
+            system("sh /usr/local/bin/tgnt_update.sh");
         }
         else
         {
