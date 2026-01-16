@@ -4,6 +4,11 @@ DEST="/usr/local/bin"
 
 echo "--- Tangent Installer ---"
 
+if ! command -v curl >/dev/null 2>&1; then
+    echo "curl not found. Installing..."
+    sudo apt update && sudo apt install -y curl
+fi
+
 # Compiles
 echo "Compiling..."
 if [ -f "./source/main.c" ]; then
@@ -35,12 +40,11 @@ done
 sudo touch "$DEST/tgnt_save.txt" "$DEST/tgnt_logs.txt"
 
 #Grants premissions
-sudo touch /usr/local/bin/tgnt_save.txt
 sudo chmod a+rw "$DEST/tgnt_save.txt" "$DEST/tgnt_logs.txt"
 
 # Makes shell files into executables
 sudo chmod +x "$DEST/tgnt"
-sudo chmod +x "$DEST/tgnt_update.sh"
-sudo chmod +x "$DEST/tgnt_uninstall.sh"
+[ -f "$DEST/tgnt_update.sh" ] && sudo chmod +x "$DEST/tgnt_update.sh"
+[ -f "$DEST/tgnt_uninstall.sh" ] && sudo chmod +x "$DEST/tgnt_uninstall.sh"
 
 echo "Installation successful, use 'tgnt' to open Tangent."
