@@ -80,6 +80,7 @@ void handle_input(char *input) {
     } 
     else if (strcmp(input, "uninstall") == 0) {
         system("sudo sh /usr/local/bin/tgnt_uninstall.sh");
+        return 0;
     } 
     else if (strcmp(input, "exit") == 0) {
         exit(0); 
