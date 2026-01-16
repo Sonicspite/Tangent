@@ -5,7 +5,7 @@ DEST="/usr/local/bin"
 echo "--- Tangent Installer ---"
 
 # Compiles
-echo "Building binary..."
+echo "Compiling..."
 if [ -f "./source/main.c" ]; then
     gcc ./source/main.c -o tgnt -lm
 else
@@ -18,9 +18,7 @@ sudo cp -f ./tgnt "$DEST/tgnt"
 
 # Moves everything except the source code
 echo "Deploying non-code files from source/ to $DEST..."
-
 for file in ./source/*; do
-    # Check if the file ends in .c or .h
     case "$file" in
         *.c|*.h) 
             # Skip these files
@@ -33,8 +31,12 @@ for file in ./source/*; do
     esac
 done
 
-sudo cp -f ./tgnt_update.sh "$DEST/tgnt_update.sh"
-sudo cp -f ./tgnt_uninstall.sh "$DEST/tgnt_uninstall.sh"
+# Creates save and log files
+sudo touch "$DEST/tgnt_save.txt" "$DEST/tgnt_logs.txt"
+
+#Grants premissions
+sudo touch /usr/local/bin/tgnt_save.txt
+sudo chmod a+rw "$DEST/tgnt_save.txt" "$DEST/tgnt_logs.txt"
 
 # Makes shell files into executables
 sudo chmod +x "$DEST/tgnt"
